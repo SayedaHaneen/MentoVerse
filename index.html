@@ -1,0 +1,868 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+<link rel="stylesheet" href="style.css">
+
+<title>Mentoverse</title>
+
+<style>
+
+:root {
+  --primary-50: #0b0f2a;
+  --primary: #020617;
+
+  --white: #ffffff;
+  --black: #000000;
+
+  --cyan: #00f0ff;
+  --cyan-soft: rgba(0,240,255,.5);
+  --cyan-shadow: rgba(0,200,255,.35);
+
+  --violet: #8b5cf6;
+
+  --blue-light: #38bdf8;
+  --blue-border: rgba(137,140,255,.7);
+
+  --text-muted: #c8ccff;
+
+  --blur-cyan: #4ce1ff55;
+
+  --sidebar-bg: #0b1020;
+}
+
+/* ================= RESET ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:"Segoe UI", sans-serif;
+}
+
+body{
+  background:radial-gradient(circle at top,var(--primary-50),var(--primary));
+  color:var(--white);
+}
+
+/* ================= NAVBAR ================= */
+.hero-con{
+  min-height:100vh;
+  width:100%;
+}
+
+.nav{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 40px;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:600;
+}
+
+.navv{
+  display:flex;
+  gap:20px;
+  align-items:center;
+}
+
+.navv a{
+  text-decoration:none;
+  color:var(--white);
+  font-size:14px;
+}
+
+.navv a span{
+  padding:5px 7px;
+  border-bottom:2px solid transparent;
+}
+
+.navv a span:hover{
+  border-bottom:2px solid rgba(228,231,240,.9);
+}
+
+.primary-btn{
+  background:linear-gradient(135deg,var(--cyan),var(--violet));
+  border:none;
+  color:var(--black);
+  font-weight:600;
+  border-radius:12px;
+  padding:10px 18px;
+  cursor:pointer;
+  box-shadow:0 0 20px var(--cyan-soft);
+}
+
+.primary-btn:hover{
+  border:1px solid var(--blue-border);
+  background:transparent;
+  color:var(--text-muted);
+}
+
+/* ================= HERO ================= */
+.hero{
+  min-height:calc(100vh - 80px);
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:40px;
+  gap:40px;
+}
+
+.hero-left{
+  max-width:550px;
+}
+
+.hero-left h1{
+  font-size:clamp(36px,6vw,80px);
+  color:var(--blue-light);
+}
+
+.hero-left h2{
+  font-weight:400;
+  margin:10px 0;
+}
+
+.hero-left p{
+  opacity:.85;
+  margin-top:14px;
+  font-size:18px;
+  line-height:1.7;
+  max-width:520px;
+}
+
+.hero-actions{
+  display:flex;
+  gap:12px;
+  margin-top:25px;
+}
+
+.btn-primary{
+  padding:10px 22px;
+  border-radius:999px;
+  border:none;
+  cursor:pointer;
+  background:linear-gradient(90deg,#52ffb8,#4ce1ff,#a35bff);
+  transition:all ease 1s;
+  font-weight:bold;
+}
+
+.btn-primary:hover{
+  border:1px solid var(--blue-border);
+  background:transparent;
+  color:var(--text-muted);
+}
+
+.btn-secondary{
+  font-weight:bold;
+  padding:10px 22px;
+  border-radius:999px;
+  border:1px solid var(--blue-border);
+  color:var(--text-muted);
+  background:transparent;
+  transition:all ease 1s;
+  cursor:pointer;
+}
+
+.btn-secondary:hover{
+  background:linear-gradient(90deg,#52ffb8,#4ce1ff,#a35bff);
+  color:#010101;
+}
+
+/* ================= VIDEO ================= */
+.hero video{
+  width:320px;
+  height:320px;
+  border-radius:50%;
+  object-fit:cover;
+  animation:float 4s ease-in-out infinite;
+  box-shadow:0 0 40px var(--cyan-shadow);
+}
+
+@keyframes float{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-18px);}
+}
+
+/* ================= GRADIENT TEXT ================= */
+.gradient{
+  background:linear-gradient(to right,#00aaa7,#7e42a7,#6600c5,#6070fd,#2a46ff,#0099ff);
+  background-size:200%;
+  background-clip:text;
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:animate-gradient 3s linear infinite;
+}
+
+@keyframes animate-gradient{
+  to{background-position:200%;}
+}
+
+/* ================= BACKGROUND BLURS ================= */
+.bg-blur{
+  position:absolute;
+  width:320px;
+  height:320px;
+  background:radial-gradient(circle,var(--blur-cyan),#0000);
+  filter:blur(80px);
+  z-index:-1;
+}
+
+.bg-blur.one{
+  top:10%;
+  left:5%;
+}
+
+.bg-blur.two{
+  bottom:10%;
+  right:5%;
+}
+
+/* ================= MENU ICON ================= */
+.menu-btn{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* ================= SIDEBAR ================= */
+.sidebar{
+  position:fixed;
+  top:0;
+  left:-100%;
+  width:260px;
+  height:100vh;
+  background:var(--sidebar-bg);
+  padding:30px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  transition:.4s ease;
+  z-index:100;
+}
+
+.sidebar.active{
+  left:0;
+}
+
+.sidebar a{
+  color:var(--white);
+  text-decoration:none;
+  font-size:16px;
+}
+
+.sidebar .close{
+  align-self:flex-end;
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .hero{
+    flex-direction:column;
+    text-align:center;
+    justify-content:center;
+  }
+
+  .hero video{
+    width:260px;
+    height:260px;
+    margin-top:20px;
+  }
+
+  .navv{
+    display:none;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+}
+
+/* ================= ROOT & GLOBAL ================= */
+:root {
+  --bg-dark: #050914;
+  --bg-card: rgba(255, 255, 255, 0.05);
+  --primary: #4cc9f0;
+  --secondary: #8b5cf6;
+  --text-light: #e5e7eb;
+  --text-muted: #9ca3af;
+  --glass-border: rgba(255, 255, 255, 0.12);
+}
+
+body {
+  background: radial-gradient(circle at top left, #0b1d3a, #02040c);
+  color: var(--text-light);
+  font-family: "Inter", sans-serif;
+}
+
+/* ================= ABOUT STRIP ================= */
+.about-strip {
+  padding: 90px 8%;
+  text-align: center;
+}
+
+.about-strip h2 {
+  font-size: clamp(28px, 4vw, 42px);
+  margin-bottom: 12px;
+}
+
+.about-strip .gradient {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-strip p {
+  max-width: 700px;
+  margin: auto;
+  color: var(--text-muted);
+  line-height: 1.6;
+  font-size: 16px;
+}
+
+/* ================= ABOUT CARDS ================= */
+.about-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px;
+  margin-top: 55px;
+}
+
+.about-card {
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.02)
+  );
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 35px 25px;
+  backdrop-filter: blur(14px);
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow border animation */
+.about-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(120deg, transparent, var(--primary), transparent);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.about-card:hover::before {
+  opacity: 0.25;
+}
+
+.about-card:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 25px 60px rgba(76, 201, 240, 0.15);
+}
+
+.about-card i {
+  font-size: 40px;
+  margin-bottom: 18px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.about-card h4 {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.about-card p {
+  font-size: 15px;
+  color: var(--text-muted);
+}
+
+/* ================= STATS ================= */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 28px;
+  padding: 70px 8%;
+  text-align: center;
+
+  
+  background: linear-gradient(
+    180deg,
+    rgba(76, 201, 240, 0.08),
+    rgba(139, 92, 246, 0.08)
+  );
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.stat-box {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid var(--glass-border);
+  border-radius: 16px;
+  padding: 35px 20px;
+  transition: all 0.35s ease;
+}
+
+
+.stat-box:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 25px 55px rgba(139, 92, 246, 0.22);
+}
+
+.stat-box h3 {
+  font-size: 36px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.stat-box p {
+  margin-top: 8px;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+}
+
+/* ================= CTA ================= */
+.cta {
+  text-align: center;
+  padding: 90px 8%;
+  background: radial-gradient(circle at center, #0b1633, #040817);
+  border-top: 1px solid var(--glass-border);
+}
+
+.cta h2 {
+  font-size: clamp(26px, 4vw, 38px);
+  margin-bottom: 12px;
+}
+
+.cta p {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 30px;
+}
+
+/* Button */
+.btn-primary {
+  padding: 14px 34px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  color: #000;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  transition: all 0.4s ease;
+}
+
+.btn-primary:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 35px rgba(139, 92, 246, 0.6);
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .about-strip {
+    padding: 70px 6%;
+  }
+
+  .stats {
+    padding: 50px 6%;
+  }
+
+  .cta {
+    padding: 70px 6%;
+  }
+}
+/* ================= HOW IT WORKS ================= */
+.how-it-works {
+  padding: 100px 8% 120px; /* bottom zyada for separation */
+  text-align: center;
+}
+
+.how-it-works h2 {
+  margin-bottom: 10px;
+}
+
+.how-it-works p {
+  color: var(--text-muted);
+  margin-bottom: 60px;
+}
+
+.section-desc {
+  max-width: 650px;
+  margin: 10px auto 50px;
+  color: var(--text-muted);
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 30px;
+}
+
+.step-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--glass-border);
+  border-radius: 18px;
+  padding: 40px 25px;
+  position: relative;
+  transition: all 0.4s ease;
+}
+
+.step-card span {
+  font-size: 34px;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.step-card::after {
+  content: "→";
+  position: absolute;
+  top: 50%;
+  right: -22px;
+  transform: translateY(-50%);
+  font-size: 22px;
+  color:var(--blue-light)
+}
+.step-card:last-child::after {
+  display: none;
+}
+.step-card h4 {
+  margin: 15px 0 8px;
+  font-size: 18px;
+}
+
+.step-card p {
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+
+.step-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 50px rgba(76, 201, 240, 0.15);
+}
+
+/* ================= FAQ ================= */
+.faq {
+  padding: 80px 8%;
+  max-width: 900px;
+  margin: auto;
+}
+
+.faq h2 {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.faq-box details {
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--glass-border);
+  border-radius: 14px;
+  padding: 18px 22px;
+  margin-bottom: 16px;
+  transition: all 0.3s ease;
+}
+
+.faq-box summary {
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.faq-box p {
+  margin-top: 12px;
+  font-size: 14px;
+  color: var(--text-muted);
+}
+
+.faq-box details[open] {
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.15);
+}
+@media (max-width: 768px) {
+  .step-card::after {
+    display: none; /* arrows hide on mobile */
+  }
+
+  .how-it-works {
+    padding-bottom: 90px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="bg-blur one"></div>
+<div class="bg-blur two"></div>
+
+<div class="hero-con">
+
+<header class="nav">
+  <div class="logo">Mentoverse</div>
+
+  <div class="navv">
+    <a href="index.html"><span>Home</span></a>
+    <a href="mentors.html"><span>Mentor</span></a>
+    <a href="live.html"><span>Learning</span></a>
+    <a href="Analytics.html"><span>Dashboard</span></a>
+    <a href="progress.html"><span>Contact</span></a>
+    <a href="RegisterNow.html"><button class="primary-btn">Register Now</button></a>
+  </div>
+
+  <div class="menu-btn" onclick="openMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+</header>
+
+<div class="sidebar" id="sidebar">
+  <i class="fas fa-times close" onclick="closeMenu()"></i>
+  <a href="index.html">Home</a>
+  <a href="mentors.html">Mentor</a>
+  <a href="live.html">Learning</a>
+  <a href="Analytics.html">Dashboard</a>
+  <a href="testimonials.html">Testimonials</a>
+</div>
+
+<section class="hero">
+
+  <div class="hero-left">
+    <h1>MENTOVERSE</h1>
+
+    <h2>
+      Providing <span class="gradient">the best</span> Teaching
+      <span class="gradient">Experience</span>
+    </h2>
+
+    <p>
+      Mentoverse is an AI-powered learning platform designed to transform
+      education through personalized mentoring, interactive experiences,
+      and future-ready skills empowering learners to grow without limits.
+    </p>
+
+    <div class="hero-actions">
+      <button class="btn-primary">Get Started</button>
+      <button class="btn-secondary">Watch Demo</button>
+    </div>
+  </div>
+
+  
+
+  <video src="assets/glob.mp4" autoplay loop muted playsinline></video>
+
+</section>
+<section class="about-strip">
+  <h2>Why <span class="gradient">Mentoverse?</span></h2>
+  <p>
+    We bridge the gap between students and mentors using AI-driven insights,
+    real-time learning, and a growth-focused ecosystem.
+  </p>
+
+  <div class="about-cards">
+    <div class="about-card">
+      <i class="fas fa-brain"></i>
+      <h4>AI Guidance</h4>
+      <p>Smart recommendations tailored to your learning style.</p>
+    </div>
+
+    <div class="about-card">
+      <i class="fas fa-user-graduate"></i>
+      <h4>Expert Mentors</h4>
+      <p>Learn directly from experienced professionals.</p>
+    </div>
+
+    <div class="about-card">
+      <i class="fas fa-chart-line"></i>
+      <h4>Progress Tracking</h4>
+      <p>Visual insights that show how far you’ve grown.</p>
+    </div>
+  </div>
+</section>
+<!-- How it works -->
+ <section class="how-it-works">
+  <h2>How <span class="gradient">Mentoverse</span> Works</h2>
+  <p class="section-desc">
+    A simple, smart, and AI-powered learning journey designed for growth.
+  </p>
+
+  <div class="steps">
+    <div class="step-card">
+      <span>01</span>
+      <h4>Create Your Profile</h4>
+      <p>Sign up and tell us about your goals and interests.</p>
+    </div>
+
+    <div class="step-card">
+      <span>02</span>
+      <h4>Get AI-Matched</h4>
+      <p>Our AI connects you with the best mentor for your needs.</p>
+    </div>
+
+    <div class="step-card">
+      <span>03</span>
+      <h4>Learn & Interact</h4>
+      <p>Engage in real-time learning and mentorship sessions.</p>
+    </div>
+
+    <div class="step-card">
+      <span>04</span>
+      <h4>Track Your Growth</h4>
+      <p>Monitor progress and unlock your full potential.</p>
+    </div>
+  </div>
+</section>
+
+
+<!-- ================= STATS ================= -->
+<section class="stats">
+  <div class="stat-box">
+    <h3>10K+</h3>
+    <p>Learners</p>
+  </div>
+  <div class="stat-box">
+    <h3>500+</h3>
+    <p>Mentors</p>
+  </div>
+  <div class="stat-box">
+    <h3>95%</h3>
+    <p>Satisfaction</p>
+  </div>
+</section>
+<!-- FAQ -->
+
+<section class="faq">
+  <h2>Frequently Asked <span class="gradient">Questions</span></h2>
+
+  <div class="faq-box">
+    <details>
+      <summary>Is Mentoverse free to use?</summary>
+      <p>Yes, Mentoverse offers free learning resources with optional premium mentorship.</p>
+    </details>
+
+    <details>
+      <summary>Who can join Mentoverse?</summary>
+      <p>Students, fresh graduates, and professionals looking to grow their skills.</p>
+    </details>
+
+    <details>
+      <summary>Is mentoring online or in-person?</summary>
+      <p>All mentoring sessions are conducted online for flexibility.</p>
+    </details>
+
+    <details>
+      <summary>How does AI mentor matching work?</summary>
+      <p>Our AI analyzes your goals, skills, and interests to recommend the best mentors.</p>
+    </details>
+  </div>
+</section>
+
+<!-- ================= CTA ================= -->
+<section class="cta">
+  <h2>Start Your Learning Journey Today</h2>
+  <p>Join Mentoverse and unlock your true potential.</p>
+  <a href="/mentoverse/RegisterNow.html"><button class="btn-primary">Join Mentoverse</button></a>
+</section>
+
+</div>
+    
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-grid">
+                <div class="footer-section">
+                    <h3>MENTOVERSE</h3>
+                    <p>Empowering learners through AI-powered personalized mentoring and interactive experiences. Transform your education journey with us.</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-icon" aria-label="Facebook">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Twitter">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="LinkedIn">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon" aria-label="Instagram">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="index.html"  target="_blank">Home</a></li>
+                        <li><a href="mentors.html" target="_blank">Find a Mentor</a></li>
+                        <li><a href="live.html" target="_blank">Live Learning</a></li>
+                        <li><a href="Analytics.html" target="_blank">Dashboard</a></li>
+                        <li><a href="testimonials.html" target="_blank">Testimonials</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">How It Works</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">FAQs</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-section">
+                    <h3>Stay Updated</h3>
+                    <p>Subscribe to our newsletter for the latest updates and learning resources.</p>
+                    <form class="newsletter-form" onsubmit="return false;">
+                        <input type="email" class="newsletter-input" placeholder="Enter your email" required>
+                        <button type="submit" class="newsletter-btn">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Mentoverse. All rights reserved.</p>
+                <div class="footer-bottom-links">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                    <a href="#">Cookie Policy</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+</div>
+
+<script >
+function openMenu(){
+  document.getElementById("sidebar").classList.add("active");
+}
+function closeMenu(){
+  document.getElementById("sidebar").classList.remove("active");
+}
+</script>
+
+</body>
+</html>

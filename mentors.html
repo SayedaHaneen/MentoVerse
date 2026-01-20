@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Choose Your AI Mentor</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:Segoe UI,sans-serif;
+}
+
+/* ================= BODY ================= */
+body{
+  min-height:100vh;
+  background:radial-gradient(circle at top,#0b0f2a,#020617);
+  color:#fff;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  width:100%;
+  padding:20px 40px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.logo{
+  font-size:22px;
+  font-weight:600;
+}
+
+.nav-links{
+  display:flex;
+  gap:22px;
+  align-items:center;
+}
+
+.nav-links a{
+  text-decoration:none;
+  color:#fff;
+  font-size:14px;
+}
+
+.primary-btn{
+  background:linear-gradient(135deg,#00f0ff,#8b5cf6);
+  border:none;
+  padding:10px 18px;
+  border-radius:12px;
+  cursor:pointer;
+  font-weight:600;
+}
+
+/* hamburger */
+.menu-btn{
+  display:none;
+  font-size:22px;
+  cursor:pointer;
+}
+
+/* sidebar */
+.sidebar{
+  position:fixed;
+  top:0;
+  left:-100%;
+  width:260px;
+  height:100vh;
+  background:#0b1020;
+  padding:30px 20px;
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  transition:.4s ease;
+  z-index:100;
+}
+
+.sidebar.active{ left:0; }
+
+.sidebar a{
+  color:#fff;
+  text-decoration:none;
+}
+
+.sidebar .close{
+  align-self:flex-end;
+  font-size:20px;
+  cursor:pointer;
+}
+
+/* ================= CONTAINER ================= */
+.container{
+  width:90%;
+  max-width:1150px;
+  margin:40px auto 80px;
+  text-align:center;
+}
+
+h1{
+  margin-bottom:50px;
+  font-size:34px;
+  letter-spacing:1px;
+}
+
+/* ================= CARDS ================= */
+
+  .cards{
+  display: flex;
+  gap:25px;
+  flex-wrap: wrap;
+  justify-content:center;
+  align-items: center;
+  
+}
+
+.card{
+  position:relative;
+  width:300px;
+  min-height:430px;
+  padding:30px 26px;
+  border-radius:20px;
+  background:linear-gradient(180deg,#0c1238,#05091f);
+  overflow:hidden;
+  transition:.4s ease;
+  display:flex;
+  flex-direction:column;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,.06),
+    0 0 35px rgba(0,183,255,.12);
+}
+
+.card:hover{
+  transform:translateY(-14px);
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  border-radius:20px;
+  pointer-events:none;
+  background:
+    linear-gradient(90deg,#4cffdf,transparent 45%) top left/45% 2px no-repeat,
+    linear-gradient(180deg,#4cffdf,transparent 45%) top right/2px 45% no-repeat,
+    linear-gradient(270deg,#4cffdf,transparent 45%) bottom right/45% 2px no-repeat,
+    linear-gradient(360deg,#4cffdf,transparent 45%) bottom left/2px 45% no-repeat;
+  filter:drop-shadow(0 0 10px #4cffdf);
+  animation:borderRun 4s linear infinite;
+}
+
+@keyframes borderRun{
+  0%{background-position:0% 0%,100% 0%,100% 100%,0% 100%;}
+  100%{background-position:100% 0%,100% 100%,0% 100%,0% 0%;}
+}
+
+/* ================= ICON ================= */
+.icon{
+  width:115px;
+  height:115px;
+  border-radius:50%;
+  margin:0 auto 26px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.icon img{
+  width:120%;
+  height:100%;
+  object-fit:contain;
+}
+
+.purple{border:5px solid #b14cff;}
+.blue{border:5px solid #4cc3ff;}
+.cyan{border:5px solid #4cffdf;}
+
+h2{
+  font-size:19px;
+  margin-bottom:8px;
+}
+
+.subtitle{
+  font-size:14px;
+  color:#9aa4ff;
+  margin-bottom:26px;
+}
+
+.stats-container{
+  text-align:left;
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+  margin-bottom:30px;
+}
+
+.stat-item{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  color:#a0a8c0;
+  font-size:15px;
+}
+
+/* ================= BUTTONS ================= */
+.buttons{
+  display:flex;
+  gap:14px;
+  margin-top:auto;
+}
+
+.btn{
+  flex:1;
+  padding:11px;
+  border-radius:12px;
+  border:1px solid #2c3cff;
+  background:transparent;
+  color:#cfd6ff;
+  cursor:pointer;
+  transition:.3s;
+}
+
+.btn:hover{
+  background:#2c3cff;
+  color:#fff;
+  box-shadow:0 0 18px rgba(44,60,255,.7);
+}
+
+/* ================= RESPONSIVE ================= */
+@media(max-width:900px){
+  .nav-links{display:none;}
+  .menu-btn{display:block;}
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header class="navbar">
+  <div class="logo">Mentoverse</div>
+  <div class="nav-links">
+    <a href="index.html"><span>Home</span></a>
+    <a href="mentors.html"><span>Mentor</span></a>
+    <a href="live.html"><span>Learning</span></a>
+    <a href="Analytics.html"><span>Dashboard</span></a>
+    <a href="testimonials.html"><span>Testimonials</span></a>
+    <a href="RegisterNow.html"><button class="primary-btn">Register Now</button></a>
+  </div>
+  <div class="menu-btn" onclick="openMenu()"><i class="fas fa-bars"></i></div>
+</header>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+  <i class="fas fa-times close" onclick="closeMenu()"></i>
+  <a href="index.html">Home</a>
+  <a href="mentors.html">Mentors</a>
+  <a href="live.html">Learning</a>
+  <a href="Analytics.html">Dashboard</a>
+  <a href="testimonials.html">Testimonials</a>
+</div>
+
+
+<!-- CONTENT -->
+<div class="container">
+<h1>Choose Your AI Mentor</h1>
+
+<div class="cards">
+  <!-- CARD 1 -->
+  <div class="card">
+    <div class="icon purple">
+      <img src="./assets/zee.png">
+    </div>
+    <h2>Andrej Karpathy</h2>
+    <div class="subtitle">LLMs & Computer Vision</div>
+    <div class="stats-container">
+      <div class="stat-item"><i class="fa-solid fa-location-dot"></i> Middle East</div>
+      <div class="stat-item"><i class="fa-regular fa-star"></i> 4.85 (120 reviews)</div>
+      <div class="stat-item"><i class="fa-regular fa-user"></i> 310 clients</div>
+    </div>
+    <div class="buttons">
+      <button class="btn">Select</button>
+      <button class="btn">Portfolio</button>
+    </div>
+  </div>
+
+  <!-- CARD 2 -->
+  <div class="card">
+    <div class="icon blue">
+      <img src="./assets/setting.png">
+    </div>
+    <h2>Zayed Bot</h2>
+    <div class="subtitle">Generative AI & Personalization</div>
+    <div class="stats-container">
+      <div class="stat-item"><i class="fa-solid fa-location-dot"></i> North America</div>
+      <div class="stat-item"><i class="fa-regular fa-star"></i> 4.97 (185 reviews)</div>
+      <div class="stat-item"><i class="fa-regular fa-user"></i> 420 clients</div>
+    </div>
+    <div class="buttons">
+      <button class="btn">Select</button>
+      <button class="btn">Portfolio</button>
+    </div>
+  </div>
+
+  <!-- CARD 3 -->
+  <div class="card">
+    <div class="icon cyan">
+      <img src="./assets/brain.png">
+    </div>
+    <h2>Anas-TeachBot</h2>
+    <div class="subtitle">GenAI Advisor</div>
+    <div class="stats-container">
+      <div class="stat-item"><i class="fa-solid fa-location-dot"></i> Europe / UK</div>
+      <div class="stat-item"><i class="fa-regular fa-star"></i> 5.0 (240 reviews)</div>
+      <div class="stat-item"><i class="fa-regular fa-user"></i> 550 clients</div>
+    </div>
+    <div class="buttons">
+      <button class="btn">Select</button>
+      <button class="btn">Portfolio</button>
+    </div>
+  </div>
+</div>
+</div>
+
+<script>
+function openMenu(){
+  document.getElementById("sidebar").classList.add("active");
+}
+function closeMenu(){
+  document.getElementById("sidebar").classList.remove("active");
+}
+</script>
+
+</body>
+</html>

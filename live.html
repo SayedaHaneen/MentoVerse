@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Live Labs</title>
+
+<style>
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+  background: radial-gradient(circle at top, #0b0f2a, #020617);
+  color: #fff;
+}
+/* NAV */
+.nav{
+    
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:22px 40px;
+  
+}
+
+.logo{
+  font-size:22px;
+  font-weight:600;
+}
+
+    .hero-actions {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+ .navv {
+      display: flex;
+      gap: 18px;
+      opacity: 0.9;
+
+    }
+.navv a{
+    text-decoration: none;
+    color: white;
+}
+.navv a span{
+    padding: 7px 12px;
+
+}
+.navv a span:hover{
+    padding: 7px 12px;
+    border-bottom:  2px solid #e4e7f0e8;
+
+}
+    .btn-primary {
+      padding: 8px 20px;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 12px;
+      color: #050313;
+      background: linear-gradient(90deg, #52ffb8, #4ce1ff, #a35bff);
+      background-size: 200% 200%;
+      animation: gradientMove 0.5s ease infinite;
+
+    }
+
+    .btn-secondary {
+      padding: 8px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(137, 140, 255, 0.7);
+      cursor: pointer;
+      font-size: 12px;
+      color: #c8ccff;
+      background: transparent;
+    }
+
+    .hero-meta {
+      font-size: 11px;
+      color: #8b8fd8;
+    }
+
+.primary-btn{
+background: linear-gradient(135deg,#00f0ff , #8b5cf6);
+      border: none;
+      color: #000;
+      font-weight: 600;
+      border-radius: 12px;
+      padding: 10px 18px;
+      box-shadow: 0 0 20px rgba(0,240,255,0.5);
+    font-size: clamp(9px 1vw 14px);
+    white-space: nowrap;
+    }
+
+ .hero-icon{
+  display: none;
+ }
+
+.live{
+  background: radial-gradient(circle at top, #0b0f2a, #020617);
+  padding: 90px 10%;
+  text-align: center;
+}
+
+
+.live h1{
+  font-size: 32px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.subtitle{
+  font-size: 15px;
+  color: #9aa4ff;
+}
+
+
+.live-content{
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+
+
+.editor img{
+  width: 500px;
+  
+  max-width: 100%;
+  border-radius: 5px;
+  border: 4px solid #0c1238;
+}
+
+
+.live-card{
+  background: linear-gradient(180deg, #0c1238, #05091f);
+  padding: 30px;
+  border-radius: 18px;
+  width: 320px;
+  min-height: 340px;
+  text-align: left;
+  position: relative;
+
+  
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.06),
+    0 0 30px rgba(76,195,255,0.25);
+}
+
+
+.second{
+  font-size: 18px;
+  margin-bottom: 25px;
+}
+
+
+.live-list{
+  list-style: none;
+  margin-bottom: 35px;
+}
+
+.live-list li{
+  padding-left: 18px;
+  position: relative;
+  margin-bottom: 15px;
+  color: #cfd6ff;
+  font-size: 14px;
+}
+
+
+.live-list li::before{
+  content: "•";
+  position: absolute;
+  left: 0;
+  color: #4cffdf;
+  font-size: 18px;
+}
+
+
+.btn-1{
+  background: linear-gradient(135deg, #4cffdf, #4cc3ff);
+  border: none;
+  padding: 12px 22px;
+  color: #020617;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.3s;
+
+}
+
+.btn-1:hover{
+  box-shadow: 0 0 18px rgba(76, 195, 255, 0.8);
+  transform: translateY(-2px);
+}
+</style>
+</head>
+
+<body>
+
+  <header class="nav">
+  <div class="logo">Mentoverse</div>
+  <div class="navv">
+       <a href="index.html"><span>Home</span></a> 
+       <a href="mentors.html"><span>Mentor</span></a> 
+       <a href="live.html"><span>Learning</span></a> 
+       <a href="Analytics.html"><span>Dashboard</span></a> 
+       <a href="testimonials.html"><span>Testimonials</a> 
+      
+      <a href="RegisterNow.html"><button class="primary-btn">Register Now</button>
+</a> 
+      </div>
+
+      
+
+      <div class="hero-icon">
+        <i class="fa-solid fa-list"></i>
+      </div>
+</header>
+<section class="live">
+  <h1>Live Labs & Hackathon Mode</h1>
+  <p class="subtitle">Empowering the next generation...</p>
+
+  <div class="live-content">
+
+    <div class="editor">
+      <img src="./assets/Editor.png" alt="Code Editor">
+    </div>
+
+    <div class="live-card">
+      <h2 class="second">Going Global Hackathon Live!</h2>
+
+      <ul class="live-list">
+        <li>Dubai  542 Challengers</li>
+        <li>Abu Dhabi  389 Participants</li>
+        <li>Cairo  210 Participants</li>
+        <li>New York  110 Participants</li>
+        <li>Tokyo  110 Participants</li>
+        <li>Denmark 300 Participants</li>
+
+      </ul>
+
+      <button class="btn-1">Join Now</button>
+    </div>
+
+  </div>
+</section>
+
+</body>
+</html>

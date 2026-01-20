@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts: Inter -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+
+  <title>Mentoverse</title>
+
+
+</head>
+
+<body>
+
+  <body>
+
+    <div class="bg-blur one"></div>
+    <div class="bg-blur two"></div>
+
+    <div class="hero-con">
+
+      <header class="nav">
+        <div class="logo">Mentoverse</div>
+
+        <div class="navv">
+          <a href="index.html"><span>Home</span></a>
+          <a href="mentors.html"><span>Mentor</span></a>
+          <a href="live.html"><span>Learning</span></a>
+          <a href="Analytics.html"><span>Dashboard</span></a>
+          <a href="testimonials.html"><span>Testimonials</span></a>
+          <a href="RegisterNow.html"><button class="primary-btn" >Register Now</button></a>
+        </div>
+
+        <!-- HAMBURGER -->
+        <div class="menu-btn" onclick="openMenu()">
+          <i class="fas fa-bars"></i>
+        </div>
+      </header>
+
+      <!-- SIDEBAR -->
+      <div class="sidebar" id="sidebar">
+        <i class="fas fa-times close" onclick="closeMenu()"></i>
+        <a href="index.html">Home</a>
+        <a href="mentors.html">Mentor</a>
+        <a href="live.html">Learning</a>
+        <a href="Analytics.html">Dashboard</a>
+        <a href="testimonials.html">Testimonials</a>
+      </div>
+
+      <section class="hero">
+
+        <div class="hero-left">
+          <h1>MENTOVERSE</h1>
+
+          <h2>
+            Providing <span class="gradient">the best</span> Teaching
+            <span class="gradient">Experience</span>
+          </h2>
+
+          <p>
+            Mentoverse is an AI-powered learning platform designed to transform
+            education through personalized mentoring, interactive experiences,
+            and future-ready skills empowering learners to grow without limits.
+          </p>
+
+          <div class="hero-actions">
+            <button class="btn-primary">Get Started</button>
+            <button class="btn-secondary">Watch Demo</button>
+          </div>
+        </div>
+
+        <video src="assets/glob.mp4" autoplay loop muted playsinline></video>
+
+      </section>
+    </div>
+
+    <section class="about-strip">
+      <h2>Why <span class="gradient">Mentoverse?</span></h2>
+      <p>
+        We bridge the gap between students and mentors using AI-driven insights,
+        real-time learning, and a growth-focused ecosystem.
+      </p>
+
+      <div class="about-cards">
+        <div class="about-card">
+          <i class="fas fa-brain"></i>
+          <h4>AI Guidance</h4>
+          <p>Smart recommendations tailored to your learning style.</p>
+        </div>
+
+        <div class="about-card">
+          <i class="fas fa-user-graduate"></i>
+          <h4>Expert Mentors</h4>
+          <p>Learn directly from experienced professionals.</p>
+        </div>
+
+        <div class="about-card">
+          <i class="fas fa-chart-line"></i>
+          <h4>Progress Tracking</h4>
+          <p>Visual insights that show how far you’ve grown.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="stats">
+      <div class="stat-box">
+        <h3>10K+</h3>
+        <p>Learners</p>
+      </div>
+      <div class="stat-box">
+        <h3>500+</h3>
+        <p>Mentors</p>
+      </div>
+      <div class="stat-box">
+        <h3>95%</h3>
+        <p>Satisfaction</p>
+      </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="cta">
+      <h2>Start Your Learning Journey Today</h2>
+      <p>Join Mentoverse and unlock your true potential.</p>
+      <button class="btn-primary">Join Mentoverse</button>
+    </section>
+
+    </div>
+
+    <div class="container">
+      <h1>Choose Your AI Mentor</h1>
+
+      <div class="cards">
+        <!-- CARD 1 -->
+        <div class="card">
+          <div class="icon purple">
+            <img src="./assets/zee.png">
+          </div>
+          <h2 class="men">Andrej Karpathy</h2>
+          <div class="subtitle">LLMs & Computer Vision</div>
+          <div class="stats-container">
+            <div class="stat-item"><i class="fa-solid fa-location-dot"></i> Middle East</div>
+            <div class="stat-item"><i class="fa-regular fa-star"></i> 4.85 (120 reviews)</div>
+            <div class="stat-item"><i class="fa-regular fa-user"></i> 310 clients</div>
+          </div>
+          <div class="buttons">
+            <button class="btn">Select</button>
+            <button class="btn">Portfolio</button>
+          </div>
+        </div>
+
+        <!-- CARD 2 -->
+        <div class="card">
+          <div class="icon blue">
+            <img src="./assets/setting.png">
+          </div>
+          <h2 class="men">Zayed Bot</h2>
+          <div class="subtitle">Generative AI & Personalization</div>
+          <div class="stats-container">
+            <div class="stat-item"><i class="fa-solid fa-location-dot"></i> North America</div>
+            <div class="stat-item"><i class="fa-regular fa-star"></i> 4.97 (185 reviews)</div>
+            <div class="stat-item"><i class="fa-regular fa-user"></i> 420 clients</div>
+          </div>
+          <div class="buttons">
+            <button class="btn">Select</button>
+            <button class="btn">Portfolio</button>
+          </div>
+        </div>
+
+        <!-- CARD 3 -->
+        <div class="card">
+          <div class="icon cyan">
+            <img src="./assets/brain.png">
+          </div>
+          <h2 class="men">Anas-TeachBot</h2>
+          <div class="subtitle">GenAI Advisor</div>
+          <div class="stats-container">
+            <div class="stat-item"><i class="fa-solid fa-location-dot"></i> Europe / UK</div>
+            <div class="stat-item"><i class="fa-regular fa-star"></i> 5.0 (240 reviews)</div>
+            <div class="stat-item"><i class="fa-regular fa-user"></i> 550 clients</div>
+          </div>
+          <div class="buttons">
+            <button class="btn">Select</button>
+            <button class="btn">Portfolio</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Liveee -->
+
+    </header>
+    <section class="live">
+      <h1>Live Labs & Hackathon Mode</h1>
+      <p class="subtitle">Empowering the next generation...</p>
+
+      <div class="live-content">
+
+        <div class="editor">
+          <img src="./assets/Editor.png" alt="Code Editor">
+        </div>
+
+        <div class="live-card">
+          <h2 class="second">Going Global Hackathon Live!</h2>
+
+          <ul class="live-list">
+            <li>Dubai 542 Challengers</li>
+            <li>Abu Dhabi 389 Participants</li>
+            <li>Cairo 210 Participants</li>
+            <li>New York 110 Participants</li>
+            <li>Tokyo 110 Participants</li>
+            <li>Denmark 300 Participants</li>
+
+          </ul>
+
+          <button class="btn-1">Join Now</button>
+        </div>
+
+      </div>
+
+    </section>
+
+    <div class="LEARN-TRACK">
+
+      <div class="container py-5">
+
+
+        <div class="row g-4">
+
+          <!-- Learning Tracks (Main Large Card) -->
+          <div class="col-12 col-lg-8">
+            <div class="glass-card"
+              style="min-height: 400px; display: flex; flex-direction: column; justify-content: center;">
+              <div class="network-bg"></div>
+              <div class="position-relative z-1">
+                <h3 class="mb-4">Learning Tracks</h3>
+
+                <div class="row g-4">
+                  <div class="col-md-6">
+                    <div class="p-3 rounded-4"
+                      style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05);">
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-primary bg-opacity-10 p-2 me-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-info">
+                            <path d="M12 2v20M2 12h20M4.93 4.93l14.14 14.14M4.93 19.07L19.07 4.93" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h5 class="mb-0">GenAI Architecture</h5>
+                          <small class="text-muted">Module 01 • 12 Lessons</small>
+                        </div>
+                      </div>
+                      <div class="progress" style="height: 4px; background: rgba(255,255,255,0.1);">
+                        <div class="progress-bar bg-info" role="progressbar"
+                          style="width: 65%; box-shadow: 0 0 10px cyan;"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="col-md-6">
+                    <div class="p-3 rounded-4"
+                      style="background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.05);">
+                      <div class="d-flex align-items-center mb-3">
+                        <div class="rounded-circle bg-primary bg-opacity-10 p-2 me-3">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                            class="text-info">
+                            <rect x="3" y="3" width="18" height="18" rx="2" />
+                            <circle cx="8.5" cy="8.5" r="1.5" />
+                            <polyline points="21 15 16 10 5 21" />
+                          </svg>
+                        </div>
+                        <div>
+                          <h5 class="mb-0">Computer Vision</h5>
+                          <small class="text-muted">Module 02 • 8 Lessons</small>
+                        </div>
+                      </div>
+                      <div class="progress" style="height: 4px; background: rgba(255,255,255,0.1);">
+                        <div class="progress-bar bg-info" role="progressbar"
+                          style="width: 30%; box-shadow: 0 0 10px cyan;"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Decoration Nodes -->
+                <div class="track-node" style="top: 20%; right: 20%;"></div>
+                <div class="track-node"
+                  style="top: 60%; right: 10%; background: var(--neon-violet); box-shadow: 0 0 15px var(--neon-violet);">
+                </div>
+                <div class="track-line" style="top: 22%; right: 20%; width: 100px; transform: rotate(45deg);"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Progress Analytics -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="glass-card">
+              <h4 class="mb-4">Analytics</h4>
+              <div class="row text-center">
+                <div class="col-6 mb-4">
+                  <div class="progress-circle" style="--percent: 85%;">
+                    <div class="progress-value">85%</div>
+                  </div>
+                  <div class="progress-label">Logic</div>
+                </div>
+                <div class="col-6 mb-4">
+                  <div class="progress-circle" style="--percent: 62%; --neon-cyan: var(--neon-blue);">
+                    <div class="progress-value">62%</div>
+                  </div>
+                  <div class="progress-label">Encode</div>
+                </div>
+                <div class="col-6">
+                  <div class="progress-circle" style="--percent: 75%; --neon-cyan: var(--neon-violet);">
+                    <div class="progress-value">75%</div>
+                  </div>
+                  <div class="progress-label">Theta</div>
+                </div>
+                <div class="col-6">
+                  <div class="progress-circle" style="--percent: 90%;">
+                    <div class="progress-value">90%</div>
+                  </div>
+                  <div class="progress-label">Sys</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Future Roadmap -->
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="glass-card">
+              <h4 class="mb-4">Future Roadmap</h4>
+              <div class="roadmap-list">
+                <div class="timeline-item active">
+                  <span class="timeline-time">2026 Q1</span>
+                  <h6 class="mb-1 text-white">Bulk Read Resource</h6>
+                  <p class="small text-muted mb-0">Completed initialization of core modules.</p>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-time">2026 Q2</span>
+                  <h6 class="mb-1 text-white">Distributed Neural Uids</h6>
+                  <p class="small text-muted mb-0">Upcoming synchronization phase.</p>
+                </div>
+                <div class="timeline-item">
+                  <span class="timeline-time">2026 Q3</span>
+                  <h6 class="mb-1 text-white">Meta-class Inference</h6>
+                  <p class="small text-muted mb-0">Advanced pattern recognition.</p>
+                </div>
+                <div class="timeline-item border-0 pb-0">
+                  <span class="timeline-time">2027 Q1</span>
+                  <h6 class="mb-1 text-white">Sentient Synthesis</h6>
+                  <p class="small text-muted mb-0">Final integration target.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Call to Action -->
+          <div class="col-12 col-lg-8">
+            <div class="glass-card d-flex flex-column justify-content-center align-items-center text-center py-5">
+              <div class="position-absolute top-0 start-0 w-100 h-100"
+                style="background: radial-gradient(circle at center, rgba(0,243,255,0.05) 0%, transparent 70%); pointer-events: none;">
+              </div>
+
+              <h2 class="display-6 mb-3">Future witness the future. <br>Architect it.</h2>
+              <p class="text-muted mb-4" style="max-width: 500px;">Join the global hackathon and build the next
+                generation of intelligence. The tools are ready. The vision is yours.</p>
+
+              <div class="d-flex gap-3 flex-wrap justify-content-center">
+                <button class="btn-neon">Join the Ecosystem</button>
+                <div class="position-relative">
+                  <input type="text" class="search-input" placeholder="Search modules..." style="width: 250px;">
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!--Testinomials  -->
+    <div class="container">
+      <h1>Student Testimonials</h1>
+      <div class="cards">
+
+        <!-- Khadeeja Noor -->
+        <div class="card">
+          <div class="icon"><i class="fa-solid fa-user"></i></div>
+          <h2 class="testi">Farzeen Fatima</h2>
+          <div class="subtitle">AI Fundamentals</div>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <p class="testimonial-text">"Amazing guidance and interactive lessons. Really boosted my understanding of AI
+            concepts!"</p>
+        </div>
+
+        <!-- Rozina -->
+        <div class="card">
+          <div class="icon"><i class="fa-solid fa-user"></i></div>
+          <h2 class="testi">Sayeda Haneen</h2>
+          <div class="subtitle">Web Development</div>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <p class="testimonial-text">"The mentors are fantastic! I learned practical skills that helped me build my own
+            projects."</p>
+        </div>
+
+        <!-- Ayesha -->
+        <div class="card">
+          <div class="icon"><i class="fa-solid fa-user"></i></div>
+          <h2 class="testi">Rozina</h2>
+          <div class="subtitle">Data Science</div>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <p class="testimonial-text">"Practical exercises and clear explanations made learning so easy and enjoyable!"
+          </p>
+        </div>
+
+        <!-- Farzeen Fatima -->
+        <div class="card">
+          <div class="icon"><i class="fa-solid fa-user"></i></div>
+          <h2 class="testi">Khadija</h2>
+          <div class="subtitle">Machine Learning</div>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+            <i class="fa-regular fa-star"></i>
+          </div>
+          <p class="testimonial-text">"The course was very comprehensive. I gained confidence in applying ML concepts
+            effectively."</p>
+        </div>
+
+        <!-- Syeda Haneen -->
+        <div class="card">
+          <div class="icon"><i class="fa-solid fa-user"></i></div>
+          <h2 class="testi">Ayesha</h2>
+          <div class="subtitle">AI Projects</div>
+          <div class="rating">
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star"></i>
+            <i class="fa-solid fa-star-half-stroke"></i>
+          </div>
+          <p class="testimonial-text">"Loved the project-based learning approach. Helped me gain real-world AI
+            experience."</p>
+        </div>
+
+      </div>
+    </div>
+
+    <footer class="neo-footer">
+  <div class="footer-glow one"></div>
+  <div class="footer-glow two"></div>
+
+  <div class="footer-container">
+
+    <!-- Brand -->
+    <div class="footer-col brand">
+      <h2 class="gradient">Mentoverse</h2>
+      <p>
+        A next-generation AI learning platform empowering students
+        with mentors, live practice, and futuristic learning paths.
+      </p>
+
+      <!-- Socials -->
+      <div class="footer-socials">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-x-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+      </div>
+    </div>
+
+    <!-- Platform -->
+    <div class="footer-col">
+      <h4>Platform</h4>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Mentors</a></li>
+        <li><a href="#">Live Labs</a></li>
+        <li><a href="#">Learning Track</a></li>
+      </ul>
+    </div>
+
+    <!-- Resources -->
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="#">Docs</a></li>
+        <li><a href="#">Community</a></li>
+        <li><a href="#">Blog</a></li>
+        <li><a href="#">Support</a></li>
+      </ul>
+    </div>
+
+    <!-- Newsletter -->
+    <div class="footer-col newsletter">
+      <h4>Stay Updated</h4>
+      <p>Get AI tips & updates directly in your inbox.</p>
+      <div class="footer-input">
+        <input type="email" placeholder="Enter your email">
+        <button>Join</button>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>© 2026 MentoVerse • Built with 💙 for future innovators</p>
+  </div>
+</footer>
+
+
+    <script>
+      function openMenu() {
+        document.getElementById("sidebar").classList.add("active");
+      }
+      function closeMenu() {
+        document.getElementById("sidebar").classList.remove("active");
+      }
+    </script>
+
+  </body>
+
+</body>
+
+</html>
